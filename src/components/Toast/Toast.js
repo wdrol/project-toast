@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import styles from "./Toast.module.css";
 import {
   AlertCircle as Notice,
@@ -9,8 +10,18 @@ import {
 } from "react-feather";
 
 function Toast({ id, variant, message, close }) {
+  const [isHidden, setIsHidden] = React.useState(true);
+
+  React.useEffect(() => setIsHidden(false), []);
+
   return (
-    <div className={styles.toast + " " + styles[variant.toLowerCase()]}>
+    <div
+      className={clsx(
+        styles.toast,
+        styles[variant.toLowerCase()],
+        isHidden ? styles.hide : undefined
+      )}
+    >
       <div className={styles.flexBetween}>
         <div className={styles.flex}>
           <div className={styles.icon}>
@@ -21,7 +32,13 @@ function Toast({ id, variant, message, close }) {
           </div>
           <div>{message}</div>
         </div>
-        <div className={styles.close} onClick={() => close(id)}>
+        <div
+          className={styles.close}
+          onClick={() => {
+            setIsHidden(true);
+            close(id);
+          }}
+        >
           <Close />
         </div>
       </div>

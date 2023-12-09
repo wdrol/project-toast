@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./ToastProvider.module.css";
 import Toast from "../Toast/Toast";
 
 export const ToastContext = React.createContext();
@@ -14,8 +15,10 @@ function ToastProvider({ children }) {
   }
 
   function removeToast(id) {
-    const newList = toastList.filter((toast) => toast.id != id);
-    setToastList(newList);
+    setTimeout(() => {
+      const newList = toastList.filter((toast) => toast.id != id);
+      setToastList(newList);
+    }, 350);
   }
 
   return (
@@ -26,7 +29,7 @@ function ToastProvider({ children }) {
       }}
     >
       <>
-        <div>
+        <div className={styles.wrapper}>
           {toastList.map((toast) => (
             <Toast
               id={toast.id}
