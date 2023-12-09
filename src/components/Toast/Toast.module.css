@@ -1,0 +1,58 @@
+.toast {
+  margin: 6px;
+  color: black;
+  max-width: 300px;
+  background: #666;
+  padding: 6px 16px;
+  border-radius: 12px;
+}
+
+.notice {
+  background: white;
+}
+
+.notice .icon svg {
+  stroke: blue;
+}
+
+.warning {
+  background: #f9ffb8;
+}
+
+.warning .icon svg {
+  stroke: #4b4d36;
+}
+
+.success {
+  background: #b8ffc2;
+}
+
+.success .icon svg {
+  stroke: green;
+}
+
+.error {
+  background: #ffc6c4;
+}
+
+.error .icon svg {
+  stroke: red;
+}
+
+.close {
+  cursor: pointer;
+  padding: 4px 8px;
+  margin-right: -8px;
+}
+
+.flex {
+  gap: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

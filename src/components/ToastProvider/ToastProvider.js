@@ -1,4 +1,5 @@
 import React from "react";
+import Toast from "../Toast/Toast";
 
 export const ToastContext = React.createContext();
 
@@ -26,14 +27,15 @@ function ToastProvider({ children }) {
     >
       <>
         <div>
-          <ul>
-            {toastList.map((toast) => (
-              <li key={toast.id}>
-                {`${toast.variant}: ${toast.message}`}{" "}
-                <button onClick={() => removeToast(toast.id)}>X</button>
-              </li>
-            ))}
-          </ul>
+          {toastList.map((toast) => (
+            <Toast
+              id={toast.id}
+              key={toast.id}
+              variant={toast.variant}
+              message={toast.message}
+              close={removeToast}
+            />
+          ))}
         </div>
         {children}
       </>

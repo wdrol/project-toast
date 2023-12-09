@@ -9,6 +9,8 @@ function ToastPlayground() {
   const [currentVariant, setCurrentVariant] = React.useState(toastVariants[0]);
   const [currentMessage, setCurrentMessage] = React.useState("Toast is ready!");
 
+  function temp() {}
+
   return (
     <div className={styles.wrapper}>
       <header>
@@ -40,15 +42,15 @@ function ToastPlayground() {
           <div className={styles.label}>Variant</div>
           <div className={`${styles.inputWrapper} ${styles.radioWrapper}`}>
             {toastVariants.map((opt) => (
-              <label htmlFor={`variant-${opt}`}>
+              <label key={`variant-${opt}`} htmlFor={`variant-${opt}`}>
                 <input
                   id={`variant-${opt}`}
-                  key={`variant-${opt}`}
                   value={opt}
                   type="radio"
                   name="variant"
                   checked={currentVariant === opt}
                   onClick={() => setCurrentVariant(opt)}
+                  onChange={temp}
                 />
                 {opt}
               </label>
