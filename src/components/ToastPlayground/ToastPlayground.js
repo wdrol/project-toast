@@ -9,8 +9,6 @@ function ToastPlayground() {
   const [currentVariant, setCurrentVariant] = React.useState(toastVariants[0]);
   const [currentMessage, setCurrentMessage] = React.useState("Toast is ready!");
 
-  function temp() {}
-
   return (
     <div className={styles.wrapper}>
       <header>
@@ -50,7 +48,9 @@ function ToastPlayground() {
                   name="variant"
                   checked={currentVariant === opt}
                   onClick={() => setCurrentVariant(opt)}
-                  onChange={temp}
+                  onChange={() => {
+                    /* to remove console warning */
+                  }}
                 />
                 {opt}
               </label>
