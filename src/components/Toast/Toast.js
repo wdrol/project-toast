@@ -14,6 +14,8 @@ function Toast({ id, variant, message, close }) {
 
   React.useEffect(() => setIsHidden(false), []);
 
+  const Tag = variant;
+
   return (
     <div
       className={clsx(
@@ -25,10 +27,7 @@ function Toast({ id, variant, message, close }) {
       <div className={styles.flexBetween}>
         <div className={styles.flex}>
           <div className={styles.icon}>
-            {variant === "Notice" && <Notice />}
-            {variant === "Warning" && <Warning />}
-            {variant === "Success" && <Success />}
-            {variant === "Error" && <Error />}
+            <Tag />
           </div>
           <div>{message}</div>
         </div>
